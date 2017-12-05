@@ -133,7 +133,8 @@ gulp.task('serwer', () => {
     console.log('Uruchamianie automatycznego odswieżania plików.');
 
     browserSync.init({
-        server: 'build/client/'
+        proxy: "localhost:8000"
+        // server: 'build/client/'
     });
 
 });
