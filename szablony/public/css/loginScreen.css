@@ -1,0 +1,93 @@
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: 'Spectral', serif;
+    font-size: 18px;
+}
+
+#loginContent {
+    width: 33%;
+    height: 33%;
+    border: 3px solid #ffffff;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-transition: opacity 0.5s ease, width 1.2s ease-out, height 1.5s ease-out;
+    transition: opacity 0.5s ease, width 1.2s ease-out, height 1.5s ease-out;
+}
+
+#errorInfo {
+    text-align: center;
+    height: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #d41d1d;
+}
+
+.info {
+    color: #2f56d9;
+}
+
+#login {
+    text-align: center;
+    border: 3px solid #ffffff;
+    color: black;
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0px 0px 5px 1px #ffffff;
+}
+
+#login:focus {
+    box-shadow: 0 0 5px 1px #404040;
+}
+
+#loginButton {
+    margin: 20px auto;
+}
+
+.buttons {
+    background-color: rgba(4, 147, 240, 0.4);
+    border: 0px solid #ffffff;
+    width: 80%;
+    height: 35px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttons:hover {
+    cursor: pointer;
+    background-color: rgba(4, 147, 240, 1);
+    transform: scale(1.1);
+}
+
+@media all and (max-width: 480px) {
+    #loginContent {
+        width: 95%;
+    }
+    #errorInfo {
+        font-size: 15px;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+    #loginContent {
+        width: 80%;
+        height: 45%;
+    }
+}
+
+@media all and (min-width: 769px) and (max-width: 1140px) {
+    #loginContent {
+        width: 50%;
+    }
+}

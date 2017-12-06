@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Moj projekt czatu">
+    <meta name="keywords" content="nic">
+    <meta name="author" content="Mikołaj Chojnacki">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Czat</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Spectral:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/loginScreen.css">
+    <link rel="stylesheet" href="css/chat.css">
+
+</head>
+
+<body>
+    <div id="container" class="flex">
+        <div id="loginContent" class="flex borderRadius25">
+            <div id="errorInfo"></div>
+            <div>
+                <input id="login" class="borderRadius15" type="text" name="nick" placeholder="Wpisz nick" maxlength="20" autofocus>
+                <div id="loginButton" class="buttons flex borderRadius15">Zatwierdź</div>
+            </div>
+        </div>
+        <div id="chatContainer" class="flex borderRadius25">
+            <div id="chatContent" class="borderRadius5">
+                <!---->
+                <div class="userConenctionAndDisconectionMessage borderRadius5">
+                    <div class="messageInfo">Time i nic rozłaczeinia i połaczeinai</div>
+                </div>
+                 <!---->
+            </div>
+            <textarea id="myMessageTextArea" class="borderRadius5" placeholder="Wpisz wiadomość"></textarea>
+            <div id="sendMessage" class="flex borderRadius15">wyslij</div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script type="text/javascript" src="js/globalVariables.js"></script>
+    <script type="text/javascript" src="js/czatMain.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
