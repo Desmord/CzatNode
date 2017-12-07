@@ -15,3 +15,5 @@ body{
 
 @import url('login.css');
 @import url('chat.css');
+@import url('chatUser.css');
+@import url('messages.css');

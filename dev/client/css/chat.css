@@ -1,6 +1,58 @@
 .czatContainer{
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    display: none;
+    width: 1500px;
+    height: 800px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 22px;
+    transition: all 0.5s linear;
+}
+
+.czatContent{
+    width: 1200px;
+    height: 750px;
+    float: left;
+    margin-top: 30px;  
+    margin-left: 16px;
+}
+.chat{
+    width: 1200px;
+    height: 500px;
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid #ffffff;
+    overflow: auto;
+    box-shadow: 0px 0px 5px 1px #ffffff;
+    border-radius: 15px;
+}
+
+#czatTextArea{
+    border: 0px solid #ffffff;
+    font-family: 'Spectral', serif;
+    width: 600px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 300px;
+    box-shadow: 0px 0px 5px 1px #ffffff;
+    border-radius: 15px;
+}
+
+.chatSendButton{
+    background-color: rgba(4, 147, 240, 0.4);
+    margin-top: 20px;
+    margin-left: 525px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content:  center;
+    width: 150px;
+    height: 35px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.chatSendButton:hover{
+    cursor: pointer;
+    background-color: rgba(4, 147, 240, 1);
+    transform: scale(1.1);
 }
