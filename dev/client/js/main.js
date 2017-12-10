@@ -1,1 +1,5 @@
-console.log(`Witaj mikołaj no halo hej`);
+const init = require(`./init.js`); 
+
+
+init.setUserContainerPosition();
+init.setUserContainerEvents();
