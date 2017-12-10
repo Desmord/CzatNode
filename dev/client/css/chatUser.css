@@ -10,6 +10,9 @@
     margin-top: 30px; 
     margin-left: 16px;
 }
+.chatUserList{
+    width: 240px;
+}
 .user{
     width: 240px;
     height: 40px;
@@ -23,3 +26,97 @@
     font-size: 25px;
     font-weight: 700;
 }
+
+.chatUserHideButton{
+    display: none;
+}
+.chatUserDeployButton{
+    display: none;
+}
+
+
+@media all and (max-width: 1500px){
+    .chatUserContainer{
+        width: 170px;
+        margin-left: 10px;
+    }
+    .chatUserList{
+        width: 165px;
+    }
+    .user{
+        width: 165px;
+        font-size: 20px;
+        height: 30px;
+    }
+}
+    
+    @media all and (max-width: 1100px){
+        .chatUserContainer{
+            width: 150px;
+            margin-left: 8px;
+            height: 370px;
+            opacity: 0.5;
+        }
+        .chatUserContainer:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .chatUserList{
+            width: 145px;
+        }
+        .user{
+            width: 145px;
+            font-size: 20px;
+            height: 30px;
+        }
+    }
+    
+    @media all and (max-width: 800px){
+        .chatUserContainer{
+            position: fixed;
+            left: -185px;
+            top: 25vh;
+            height: 300px;
+            width: 210px;
+            display: flex;
+            flex-direction: row;
+        }
+        .chatUserList{
+            width: 145px;
+            margin-left: -2px;
+            background-color: rgba(255,255,255,0.8);
+        }
+        .user{
+            width: 140px;
+            font-size: 20px;
+            height: 30px;
+        }
+        .chatUserHideButton{
+            display: block;
+            width: 33px;
+            height: 300px;
+            background-color: #fff;
+            font-weight: 700;
+            background-color: rgba(212, 95, 95, 0.9);
+        }
+
+        .chatUserHideButton div{
+            transform: rotate(270deg) translateX(-165px);
+        }
+        .chatUserDeployButton{
+            font-weight: 700;
+            display: block;
+            width: 34px;
+            height: 300px;
+            background-color: #fff;
+            background-color: rgba(89,166,234,0.9);
+        }
+
+        .chatUserDeployButton div{
+            transform: rotate(270deg) translateX(-185px);
+        }
+    }
+    
+    @media all and (max-width: 500px){
+        
+    }

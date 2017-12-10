@@ -63,3 +63,123 @@
     margin-left: 10px;
     background-color: rgba(95,212,95,0.5);
 }
+
+
+
+@media all and (max-width: 1500px){
+    .czatInfo{
+        width: 750px;
+        margin-left: 25px;
+    }
+    .chatUserConnectionInfo{
+        width: 350px;
+    }
+    .myMessage{
+        width: 500px;
+        margin-left: 290px;
+    }
+    .othersMessage{
+        width: 500px;
+    }
+    .messageText{
+        width: 490px;
+        font-size: 20px;
+    }
+
+}
+    
+@media all and (max-width: 1100px){
+        .czatInfo{
+            width: 500px;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .chatUserConnectionInfo{
+            width: 350px;
+            font-size: 15px;
+        }
+        .myMessage{
+            width: 350px;
+            margin-left: 250px;
+        }
+        .othersMessage{
+            width: 350px;
+        }
+        .messageText{
+            width: 350px;
+            font-size: 18px;
+        }
+        .messageTitle{
+            width: 200px;
+            font-size: 14px;
+        }
+        .messageTitle div{
+            font-size: 14px;
+        }
+}
+    
+    @media all and (max-width: 800px){
+        .czatInfo{
+            width: 440px;
+            height: 30px;
+            margin-left: 10px;
+            font-size: 15px;
+        }
+        .chatUserConnectionInfo{
+            width: 330px;
+            font-size: 12px;
+        }
+        .myMessage{
+            width: 300px;
+            margin-left: 142px;
+        }
+        .othersMessage{
+            width: 300px;
+        }
+        .messageText{
+            width: 300px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .messageTitle{
+            width: 200px;
+            font-size: 12px;
+        }
+        .messageTitle div{
+            font-size: 14px;
+        }
+    }
+    
+    @media all and (max-width: 500px){
+        .czatInfo{
+            width: 280px;
+            height: 25px;
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        .chatUserConnectionInfo{
+            width: 240px;
+            font-size: 10px;
+        }
+        .myMessage{
+            width: 200px;
+            margin-left: 88px;
+        }
+        .othersMessage{
+            width: 200px;
+            margin-left: 2px;
+        }
+        .messageText{
+            width: 190px;
+            font-size: 14px;
+            line-height: 20px;
+            line-height: 18px;
+        }
+        .messageTitle{
+            width: 180px;
+            font-size: 12px;
+        }
+        .messageTitle div{
+            font-size: 14px;
+        }
+    }
