@@ -94,7 +94,7 @@ gulp.task('cleanReactAndJS', () => {
 });
 
 gulp.task('updateReactAndJS', () => {
-    return browserify(['dev/client/js/react/react.js','dev/client/js/czat/displayCzatMethods.js','dev/client/js/czat/userEvents.js','dev/client/js/init.js','dev/client/js/login/loginEvents.js','dev/client/js/main.js'])  // Pobieranie plików
+    return browserify(['dev/client/js/czat/react/react.js','dev/client/js/czat/displayCzatMethods.js','dev/client/js/czat/userEvents.js','dev/client/js/init.js','dev/client/js/login/loginEvents.js','dev/client/js/main.js'])  // Pobieranie plików
         .transform(babelify, {presets: ["es2015", "react"]})
         .bundle()
         .pipe(source('main.js'))

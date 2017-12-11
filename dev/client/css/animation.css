@@ -2,3 +2,10 @@
     transform: translateX(180px);
     opacity: 1;
 }
+
+.hideContainer{
+   opacity: 0;
+}
+.showContainer{
+    opacity: 1;
+}

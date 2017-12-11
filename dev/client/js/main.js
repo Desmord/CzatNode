@@ -1,12 +1,14 @@
 const init = require(`./init.js`);
 const login = require(`./login/loginEvents.js`);
+const userE = require(`./czat/userEvents.js`);
 const loginObject = new login.LoginValidationEvents();
+const userEvents = new userE.UserEvents();
 const socket = io.connect("ws://localhost:8000");
 
 init.setUserContainerPosition();
 init.setUserContainerEvents();
 
-//Tutaj zdarzenie socketu
+userEvents.logIn(socket);
 
 document.querySelector(`#login`).addEventListener(`input`, () => {
     loginObject.ifMaxLenght();
@@ -48,10 +50,7 @@ document.addEventListener('keypress', (e)=>{
                         //zmiana okien i polacznie 9.
                         // });
 
-                                                            // // WYswietlanie bledow podsczas logowani
-                                                            // socket.on(`err`,(error)=>{
-                                                            //     console.log(error);
-                                                            // });
+
 
 //  3                                                           
 // // odebranie info od innych ze ktos dolaczyl
@@ -69,8 +68,6 @@ document.addEventListener('keypress', (e)=>{
 //     console.log(messageObject);
 // });
 
-                                                                // //laczenie i sprawdznie czy mozna 1
-                                                                // socket.emit(`logIn`,`Mikolaj`); 
 // 9
                         // //laczenie i wchodzenie do czatu 2 // to w zaleznosci czy przeslismy czy nie testy
                         // socket.emit(`userConnect`,`MikołajNick`);
