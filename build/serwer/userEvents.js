@@ -47,7 +47,7 @@ class UserEvents {
      */
     nickExsist(nick) {
         for (let i = 0; i < this.userArray.length; i++) {
-            if (!(nick.toUpperCase() == this.userArray[i].Nick.toUpperCase())) {
+            if ((nick.toUpperCase() == this.userArray[i].Nick.toUpperCase())) {
                 return false;
             }
         }

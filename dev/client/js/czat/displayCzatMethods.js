@@ -1,8 +1,11 @@
-const react = require(`./react/react.js`);
+const react = require(`./elementCreator.js`);
 
+let addUserConnectionInfo = ()=>{
+    react.addUserConnectionInfo();
+}
 
-let addConectionInfo= () => {
-    //tutaj wyswitalani ifo o polaczeniu
+let addConectionInfo = () => {
+    react.addInfoElement();
 }
 
 let hideLoginContainer = () => {
@@ -29,5 +32,6 @@ let changeContainer = () => {
 
 module.exports = {
     changeContainer: changeContainer,
-    addConectionEvent: addConectionEvent
+    addConectionInfo: addConectionInfo,
+    addUserConnectionInfo: addUserConnectionInfo
 }

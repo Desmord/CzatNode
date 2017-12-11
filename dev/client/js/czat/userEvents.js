@@ -4,26 +4,32 @@ const displayHideMethods = require(`./displayCzatMethods.js`);
 class UserEvents {
     constructor() { }
 
-
-
+    getLoginValue(){
+        return document.querySelector(`#login`).value;
+    }
 
     logIn(socket) {
         socket.on(`logIn`, () => {
             displayHideMethods.changeContainer();
             displayHideMethods.addConectionInfo();
 
+            socket.emit(`userConnect`,this.getLoginValue());
+
             socket.on(`userConnection`, (nick) => {
-                console.log(`Inny uzytkownik o nicku ${nick} polaczony`);
-            })
-
-            socket.on(`userDisconected`, (nick) => {
-                console.log(`Uzytkownik ${nick} rozłaczony`);
+                console.log(`nowy user ${nick}`);
+               displayHideMethods.addUserConnectionInfo();
             });
 
-            socket.on('message', (messageObject) => {
-                console.log(messageObject);
-            });
+            // socket.on(`userDisconected`, (nick) => {
+            //     console.log(`Uzytkownik ${nick} rozłaczony`);
+            // });
 
+            // socket.on('message', (messageObject) => {
+            //     console.log(messageObject);
+            // });
+
+
+            // socket.emit(`userConnect`,`MikołajNick`);
 
             // 6
 // //wysywalnie wiadomosci
