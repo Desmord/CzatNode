@@ -1,8 +1,32 @@
-const init = require(`./init.js`); 
-
+const init = require(`./init.js`);
+const login = require(`./login/loginEvents.js`);
+const loginObject = new login.LoginValidationEvents();
+const socket = io.connect("ws://localhost:8000");
 
 init.setUserContainerPosition();
 init.setUserContainerEvents();
+
+//Tutaj zdarzenie socketu
+
+document.querySelector(`#login`).addEventListener(`input`, () => {
+    loginObject.ifMaxLenght();
+});
+
+document.querySelector(`#loginButton`).addEventListener(`click`, () => {
+    loginObject.isLoginCorrect(socket);
+});
+
+document.addEventListener('keypress', (e)=>{
+    let keyname = e.key;
+    if (keyname === 'Enter') {
+       loginObject.isLoginCorrect(socket);
+    }
+});
+
+// .errorInfo
+// #login
+// #loginButton
+
 
 
 // Proby-------------------------------------------------------------------------------------
@@ -12,40 +36,46 @@ init.setUserContainerEvents();
 // y-------------------------------------------------------------------------------------
 // y-------------------------------------------------------------------------------------
 
-let socket = io.connect("ws://localhost:8000");
+// let socket = io.connect("ws://localhost:8000");
 
-// udane sprawadznie logowania
-socket.on(`logIn`,()=>{
-    console.log(`Gotowy do logowania`);
-});
+// 1
+                        // // udane sprawadznie logowania
+                        // socket.on(`logIn`,()=>{
+                        //     console.log(`Gotowy do logowania`);
 
-// WYswietlanie bledow podsczas logowani
-socket.on(`err`,(error)=>{
-    console.log(error);
-});
+                        // dodanie zdarzenie usera
 
-// odebranie info od innych ze ktos dolaczyl
-socket.on(`userConnection`,(nick)=>{
-    console.log(`Inny uzytkownik o nicku ${nick} polaczony`);
-})
+                        //zmiana okien i polacznie 9.
+                        // });
 
-//uzytkownik rozlaczony
-socket.on(`userDisconected`,(nick)=>{
-    console.log(`Uzytkownik ${nick} rozłaczony`);
-});
+                                                            // // WYswietlanie bledow podsczas logowani
+                                                            // socket.on(`err`,(error)=>{
+                                                            //     console.log(error);
+                                                            // });
 
-//wiodomosci pod innych
-socket.on('message',(messageObject)=>{
-    console.log(messageObject);
-});
+//  3                                                           
+// // odebranie info od innych ze ktos dolaczyl
+// socket.on(`userConnection`,(nick)=>{
+//     console.log(`Inny uzytkownik o nicku ${nick} polaczony`);
+// })
+// 4
+// //uzytkownik rozlaczony
+// socket.on(`userDisconected`,(nick)=>{
+//     console.log(`Uzytkownik ${nick} rozłaczony`);
+// });
+// 5
+// //wiodomosci pod innych
+// socket.on('message',(messageObject)=>{
+//     console.log(messageObject);
+// });
 
-//laczenie i sprawdznie czy mozna 1
-socket.emit(`logIn`,`Mikolaj`); 
-
-//laczenie i wchodzenie do czatu 2 // to w zaleznosci czy przeslismy czy nie testy
-socket.emit(`userConnect`,`MikołajNick`);
-
-//wysywalnie wiadomosci
-socket.emit(`message`,`Wiadomosc`);
+                                                                // //laczenie i sprawdznie czy mozna 1
+                                                                // socket.emit(`logIn`,`Mikolaj`); 
+// 9
+                        // //laczenie i wchodzenie do czatu 2 // to w zaleznosci czy przeslismy czy nie testy
+                        // socket.emit(`userConnect`,`MikołajNick`);
+// 6
+// //wysywalnie wiadomosci
+// socket.emit(`message`,`Wiadomosc`);
 
 
