@@ -84,36 +84,32 @@ class LoginValidationEvents {
         return false;
     }
 
-   
+
     /**
      * checking the login correctness using login module
-     * @return {bool} ture if ok, false if error
+     * @param {Socket} user socket
      */
-    isLoginCorrect(){
-        if(this.isOffensive(this.getLoginValue())){
+    isLoginCorrect(socket) {
+        if (this.isOffensive(this.getLoginValue())) {
             this.setError(`Login nie może zawierać przekleństwa.`);
-            return false;
-        }else if(this.isZeroLenght(this.getLoginValue())){
+        } else if (this.isZeroLenght(this.getLoginValue())) {
             this.setError(`Login musi posiadać przynajmniej jeden znak.`);
-            return false;
-        }else if(this.isSpaceOnly(this.getLoginValue())){
+        } else if (this.isSpaceOnly(this.getLoginValue())) {
             this.setError(`Login nie może zawierać spacji.`);
-            return false;
-        }else if(this.isNumber(this.getLoginValue())){
+        } else if (this.isNumber(this.getLoginValue())) {
             this.setError(`Login nie może być tylko liczbą.`);
-            return false;
-        }else if(this.isAcceptableCharakters(this.getLoginValue())){
+        } else if (this.isAcceptableCharakters(this.getLoginValue())) {
             this.setError(`Użyto niedozwolone znaki.`);
-            return false;
-        }else{
-            return true;
+        } else {
+            socket.on(`err`, (error) => {
+                this.setError(error);
+            });
+            socket.emit(`logIn`,this.getLoginValue()); 
         }
     }
 
 }
 
-const loginValidationObject = new LoginValidationEvents();
-
 module.exports = {
-    loginValidationObject: loginValidationObject
+    LoginValidationEvents: LoginValidationEvents
 }
