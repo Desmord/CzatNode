@@ -30,6 +30,8 @@
     margin-top: 5px;
     margin-left: 490px;
     background-color: rgba(89,166,234,0.5);
+    opacity: 0;
+    transition: all 0.3s linear;
 }
 
 .messageTitle{
@@ -57,11 +59,13 @@
 }
 
 .othersMessage{
+    opacity: 0;
     border-radius: 15px;
     width: 700px;
     margin-top: 5px;
     margin-left: 10px;
     background-color: rgba(95,212,95,0.5);
+    transition: all 0.3s linear;
 }
 
 

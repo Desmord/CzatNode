@@ -74,7 +74,7 @@ class UserEvents {
         socket.on(`logIn`, (nick) => {
             if (this.maxUsers()) {
                 if (this.nickExsist(nick)) {
-                    socket.emit(`logIn`);
+                    socket.emit(`logIn`,this.userArray);
                 } else {
                     socket.emit(`err`, `Podany nick już istnieje.`);
                 }

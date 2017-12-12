@@ -1,4 +1,7 @@
-
+/**
+ * Returns actual date and time
+ * @param {date} data and time
+ */
 const getMyTime = () => {
     let today = new Date();
     let dd = today.getDate();
@@ -19,6 +22,30 @@ const getMyTime = () => {
     return today;
 }
 
+/**
+ * Generate Node element and displaing it within users Container
+ * @param {array} userArray 
+ */
+let generateUserList = (userArray) => {
+    let myNode = document.querySelector(".chatUserList");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+
+    for (let i = 0; i < userArray.length; i++) {
+        let element = document.createElement(`div`);
+        element.classList.add(`user`);
+        let text = document.createTextNode(userArray[i]);
+        element.appendChild(text)
+        myNode.appendChild(element);
+    }
+
+}
+
+/**
+ * Generates others users connection info element and display it in chat
+ * @param {string} nick 
+ */
 let addUserConnectionInfo = (nick) => {
     let parentElement = document.createElement(`div`);
     parentElement.classList.add(`chatUserConnectionInfo`);
@@ -27,6 +54,9 @@ let addUserConnectionInfo = (nick) => {
     document.querySelector(`.chat`).appendChild(parentElement);
 }
 
+/**
+ * Generates user connection info element and display it in chat
+ */
 let addConectionInfo = () => {
     let parentElement = document.createElement(`div`);
     parentElement.classList.add(`czatInfo`);
@@ -35,6 +65,10 @@ let addConectionInfo = () => {
     document.querySelector(`.chat`).appendChild(parentElement);
 }
 
+/**
+ * Generates user disconnection info element and display it in chat
+ * @param {string} nick 
+ */
 let addUserDisconectedInfo = (nick) => {
     let parentElement = document.createElement(`div`);
     parentElement.classList.add(`chatUserConnectionInfo`);
@@ -43,15 +77,20 @@ let addUserDisconectedInfo = (nick) => {
     document.querySelector(`.chat`).appendChild(parentElement);
 }
 
+/**
+ * Generates user messagen info element and display it in chat
+ * @param {string} message
+ * @param {string} user nick 
+ */
 let addMyMessage = (message, nick) => {
     let parentElement = document.createElement(`div`);
     parentElement.classList.add(`myMessage`);
 
-    let messageTitle =document.createElement(`div`);
+    let messageTitle = document.createElement(`div`);
     messageTitle.classList.add(`messageTitle`);
 
     let titleText = document.createTextNode(`${getMyTime()} -  `);
-    let nickElement =document.createElement(`div`);
+    let nickElement = document.createElement(`div`);
     let nickElementText = document.createTextNode(`${nick}`);
 
     messageTitle.appendChild(titleText);
@@ -65,19 +104,26 @@ let addMyMessage = (message, nick) => {
     messageTextElement.appendChild(messageText);
 
     parentElement.appendChild(messageTextElement);
-    
+
     document.querySelector(`.chat`).appendChild(parentElement);
+    setTimeout(() => {
+        parentElement.classList.add(`showMessage`);
+    }, 100);
 }
 
+/**
+ * Generates self message info element and display it in chat
+ * @param {object} object with nick and message 
+ */
 let addOtherMessage = (messageObject) => {
     let parentElement = document.createElement(`div`);
     parentElement.classList.add(`othersMessage`);
 
-    let messageTitle =document.createElement(`div`);
+    let messageTitle = document.createElement(`div`);
     messageTitle.classList.add(`messageTitle`);
 
     let titleText = document.createTextNode(`${getMyTime()} -  `);
-    let nickElement =document.createElement(`div`);
+    let nickElement = document.createElement(`div`);
     let nickElementText = document.createTextNode(`${messageObject.nick}`);
 
     messageTitle.appendChild(titleText);
@@ -91,10 +137,16 @@ let addOtherMessage = (messageObject) => {
     messageTextElement.appendChild(messageText);
 
     parentElement.appendChild(messageTextElement);
-    
+
     document.querySelector(`.chat`).appendChild(parentElement);
+    setTimeout(() => {
+        parentElement.classList.add(`showMessage`);
+    }, 100);
 }
 
+/**
+ * Hidding login container
+ */
 let hideLoginContainer = () => {
     document.querySelector(`.loginContainer`).classList.add(`hideContainer`);
     setTimeout(() => {
@@ -102,6 +154,9 @@ let hideLoginContainer = () => {
     }, 500);
 }
 
+/**
+ * Shows czat container
+ */
 let showCzatContainer = () => {
     document.querySelector(`.czatContainer`).style.opacity = '0';
     document.querySelector(`.czatContainer`).style.display = 'block';
@@ -110,6 +165,9 @@ let showCzatContainer = () => {
     }, 100);
 }
 
+/**
+ * Change login container to czat container
+ */
 let changeContainer = () => {
     hideLoginContainer();
     setTimeout(() => {
@@ -123,5 +181,6 @@ module.exports = {
     addUserConnectionInfo: addUserConnectionInfo,
     addUserDisconectedInfo: addUserDisconectedInfo,
     addMyMessage: addMyMessage,
-    addOtherMessage: addOtherMessage
+    addOtherMessage: addOtherMessage,
+    generateUserList: generateUserList
 }
