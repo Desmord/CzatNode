@@ -18,6 +18,8 @@ const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const rename = require('gulp-rename');
 const streamify = require('gulp-streamify');
+
+const gulpDocumentation = require('gulp-documentation');
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
@@ -94,8 +96,8 @@ gulp.task('cleanReactAndJS', () => {
 });
 
 gulp.task('updateReactAndJS', () => {
-    return browserify(['dev/client/js/czat/displayCzatMethods.js','dev/client/js/czat/userEvents.js','dev/client/js/init.js','dev/client/js/login/loginEvents.js','dev/client/js/main.js'])  // Pobieranie plików
-        .transform(babelify, {presets: ["es2015", "react"]})
+    return browserify(['dev/client/js/czat/displayCzatMethods.js', 'dev/client/js/czat/userEvents.js', 'dev/client/js/init.js', 'dev/client/js/login/loginEvents.js', 'dev/client/js/main.js'])  // Pobieranie plików
+        .transform(babelify, { presets: ["es2015", "react"] })
         .bundle()
         .pipe(source('main.js'))
         .pipe(gulp.dest('build/client/js'))
@@ -108,25 +110,31 @@ gulp.task('updateReactAndJS', () => {
 
 
 gulp.task('watchReact', () => {
-    
-        console.log('Uruchamianie obserwowania plików .reacts.');
-    
-        gulp.watch('dev/client/js/czat/react/react.js', ['updateReactAndJS', browserSync.reload]);
-    
+
+    console.log('Uruchamianie obserwowania plików .reacts.');
+
+    gulp.watch('dev/client/js/czat/react/react.js', ['updateReactAndJS', browserSync.reload]);
+
 });
-    
+
 gulp.task('watchJs', () => {
-    
-        console.log('Uruchamianie obserwowania plików Js.');
-    
-        gulp.watch('dev/client/js/czat/*.js', ['updateReactAndJS', browserSync.reload]);
-    
-    });
+
+    console.log('Uruchamianie obserwowania plików Js.');
+
+    gulp.watch('dev/client/js/czat/*.js', ['updateReactAndJS', browserSync.reload]);
+
+});
 
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
+gulp.task('doc', () => {
+    return gulp.src('./dev/client/js/**.js')
+        .pipe(gulpDocumentation('html'))
+        .pipe(gulp.dest('doc/'));
+});
+
 
 gulp.task('serwer', () => {
 
@@ -141,5 +149,5 @@ gulp.task('serwer', () => {
 
 
 gulp.task('build', () => {
-    runSequence('cleanReactAndJS','cleanHTML','cleanCss','updateReactAndJS','updateCss','updateHTML','watchJs','watchCss','watchHTML','serwer');
+    runSequence('cleanReactAndJS', 'cleanHTML', 'cleanCss', 'updateReactAndJS', 'updateCss', 'updateHTML','doc', 'watchJs', 'watchCss', 'watchHTML', 'serwer');
 });
